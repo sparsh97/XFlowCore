@@ -1,0 +1,44 @@
+<!-- <div >
+   <ul *ngIf="(process |async) as p">
+      <li>{{p.id}}</li>
+      <li>{{p.name}}</li>
+      <li>{{p.resource}}</li>
+      <li>{{p.key}}</li>
+      <li>{{p.deploymentId}}</li>
+   </ul>
+</div>
+<div>
+   <button class="btn btn-dark text-white" (click)="onBack()">Back</button>
+</div> -->
+
+
+<div class="container">
+   <h4 class="display-4">Process Details</h4>
+</div>
+<div class="container-fluid p-2 ">
+  <div>
+        <table class="table text-center table-bordered table-hover">
+           <thead>
+             <tr>
+               <th scope="col">Id</th>
+               <th scope="col">Name</th>
+               <th scope="col">Resource</th>
+               <th scope="col">Key</th>
+               <th scope="col">DeploymentId</th>
+             </tr>
+           </thead>
+           <tbody> 
+                 <tr *ngIf="(process | async) as task" >
+                   <td>{{task.id}}</td>
+                   <td>{{task.name}}</td>
+                   <td>{{task.resource}}</td>
+                   <td>{{task.key}}</td>
+                   <td>{{task.deploymentId}}</td>
+                 </tr>
+            </tbody>
+         </table>
+         <div>
+           <button class="btn btn-dark text-white float-right" (click)="onBack()">Back</button>
+        </div>
+  </div>
+</div> 

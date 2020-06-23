@@ -1,0 +1,42 @@
+ <div class="container">
+    <h4 class="display-4">Task Details</h4>
+ </div>
+ <div class="container-fluid p-2 ">
+   <div>
+         <table class="table text-center table-bordered table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Assignee</th>
+                <th scope="col">Created</th>
+                <th scope="col">Due</th>
+                <th scope="col">FollowUp</th>
+                <th scope="col">DelegationState</th>
+                <th scope="col">Description</th>
+                <th scope="col">ExecutionId</th>
+                <th scope="col">Owner</th>
+                <th scope="col">ParentTaskId</th>
+              </tr>
+            </thead>
+            <tbody> 
+                  <tr *ngIf="(tasks | async) as task" >
+                    <td>{{task.id}}</td>
+                    <td>{{task.name}}</td>
+                    <td>{{task.assignee}}</td>
+                    <td>{{task.created}}</td>
+                    <td>{{task.due}}</td>
+                    <td>{{task.followUp}}</td>
+                    <td>{{task.delegationState}}</td>
+                    <td>{{task.description}}</td>
+                    <td>{{task.executionId}}</td>
+                    <td>{{task.owner}}</td>
+                    <td>{{task.parentTaskId}}</td>
+                  </tr>
+             </tbody>
+          </table>
+          <div>
+            <button class="btn btn-dark text-white float-right" (click)="onBack()">Back</button>
+         </div>
+   </div>
+</div> 

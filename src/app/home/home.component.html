@@ -1,0 +1,54 @@
+<!-- <div class="container p-2 ">
+   <div>
+      <div class=".col-6 .col-md-4">
+         <table class="table text-center">
+            <thead>
+              <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Assignee</th>
+              </tr>
+            </thead>
+             [routerLink]="['task-details',task.id]" 
+            <tbody>
+              
+              <tr *ngFor="let task of tasks;  index as i">
+                <td>{{task.id}}</td>
+                <td><a (click)="onClick(task.id)">{{task.name}}</a></td>
+                <td>{{task.assignee}}</td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+   </div>
+</div> -->
+<div class="container"> 
+  <h4 class="display-4">Tasks<button class="btn btn-primary text-white text-center float-right p-2 m-2" (click)="onClick()">Process</button></h4>
+  
+</div>
+<div class="container p-2 ">
+  <div>
+     <div class=".col-6 .col-md-4">
+        <table class="table text-center table-bordered table-hover">
+           <thead>
+             <tr>
+               <th scope="col">Id</th>
+               <th scope="col">Name</th>
+               <th scope="col">Assignee</th>
+             </tr>
+           </thead>
+           <!-- [routerLink]="['task-details',task.id]" -->
+           <tbody>
+             
+             <tr *ngFor="let task of (temp | async);  index as i">
+               <td>{{task.id}}</td>
+               <td><a [routerLink]="['/task-details/',task.id]">{{task.name}}</a></td>
+               <td>{{task.assignee}}</td>
+             </tr>
+           </tbody>
+         </table>
+     </div>
+  </div>
+</div>
+
+
