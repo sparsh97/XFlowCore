@@ -12,13 +12,14 @@
 <h1 class="display-4 text-center">Process</h1>
 <div class="container">
 <div class=".col-6 .col-md-4">
-   <table class="table text-center table-bordered table-hover">
-      <thead>
+   <table class="table text-center table-bordered table-hover table-sm">
+      <thead class="thead-dark">
         <tr>
           <th scope="col">Id</th>
           <th scope="col">Key</th>
           <th scope="col">Name</th>
           <th scope="col">Resource</th>
+          <th scope="col">Start Process</th>
         </tr>
       </thead>
       <tbody> 
@@ -27,6 +28,7 @@
            <td>{{process.key}}</td>
            <td><a [routerLink]="['/process-details/',process.id]">{{process.name}}</a></td>
            <td>{{process.resource}}</td>
+           <td><button class="btn btn-primary text-white text-center">Start</button></td>
          </tr>
        </tbody>
      </table>

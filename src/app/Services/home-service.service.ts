@@ -56,11 +56,11 @@ export class HomeServiceService {
 
   public postLoginVerify(variable){
     //console.log(variable);
-    const endpoint=`${this.url}identity/verify${variable}`;
+    const endpoint=`${this.url}identity/verify/${variable}`;
     console.log(endpoint);
     return this.http.post<any>(endpoint,variable).pipe(
-      tap(form => this.log(`fetched tasks by ID`)),
-      catchError(this.handleError('getTasks', []))
+      tap(form => this.log(`user is verified`)),
+      catchError(this.handleError('postLoginVerify', []))
       
     );
     

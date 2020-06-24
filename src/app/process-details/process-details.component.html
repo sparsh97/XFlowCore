@@ -17,8 +17,8 @@
 </div>
 <div class="container-fluid p-2 ">
   <div>
-        <table class="table text-center table-bordered table-hover">
-           <thead>
+        <table class="table text-center table-bordered table-hover table-sm">
+           <thead class="thead-dark">
              <tr>
                <th scope="col">Id</th>
                <th scope="col">Name</th>
@@ -28,7 +28,7 @@
              </tr>
            </thead>
            <tbody> 
-                 <tr *ngIf="(process | async) as task" >
+                 <tr *ngIf="(process | async) as task"  >
                    <td>{{task.id}}</td>
                    <td>{{task.name}}</td>
                    <td>{{task.resource}}</td>

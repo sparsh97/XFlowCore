@@ -20,7 +20,7 @@ export class LoginFormComponent implements OnInit {
 
   onSubmit(){
     this.homeService.postLoginVerify(this.loginForm.value);
-    console.log(this.loginForm.value);
+    console.log(this.loginForm.value.username);
     this.router.navigate(['/home']);
   }
 
