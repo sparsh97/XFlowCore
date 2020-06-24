@@ -15,6 +15,11 @@
 <div class="container">
    <h4 class="display-4">Process Details</h4>
 </div>
+<div class="container text-primary">
+   <div *ngIf="(process | async) as task">
+      <h2>{{task.name}}</h2>
+   </div>
+</div>
 <div class="container-fluid p-2 ">
   <div>
         <table class="table text-center table-bordered table-hover table-sm">
@@ -28,7 +33,7 @@
              </tr>
            </thead>
            <tbody> 
-                 <tr *ngIf="(process | async) as task"  >
+                 <tr *ngIf="(process | async) as task">
                    <td>{{task.id}}</td>
                    <td>{{task.name}}</td>
                    <td>{{task.resource}}</td>

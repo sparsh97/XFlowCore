@@ -1,6 +1,11 @@
  <div class="container">
     <h4 class="display-4">Task Details</h4>
  </div>
+ <div class="container text-primary">
+   <div *ngIf="(tasks | async) as task">
+    <h4>{{task.name}}</h4>
+   </div>
+ </div>
  <div class="container-fluid p-2 ">
    <div>
          <table class="table text-center table-bordered table-hover table-sm">
