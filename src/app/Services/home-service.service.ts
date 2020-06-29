@@ -13,13 +13,6 @@ export class HomeServiceService {
   url: string="http://localhost:8080/engine-rest/"
   constructor(private http: HttpClient) { }
 
-  // postProcessInstance(processDefinitionKey, variables): Observable<any> {
-  //   const endpoint = `${this.url}process-definition/key/${processDefinitionKey}/start`;
-  //   return this.http.post<any>(endpoint, variables).pipe(
-  //     tap(processDefinitions => console.log(`posted process instance`))
-      
-  //   );
-  // }
   public getTask(): Observable<Task[]>{
     //return this.http.get<Task[]>(this.url+"/task");
     const endpoint = `${this.url}task?sortBy=created&sortOrder=desc&maxResults=10`;
@@ -42,7 +35,6 @@ export class HomeServiceService {
       tap(processDefinitons=> this.log(`fetched processDefinitions`)),
       catchError(this.handleError('getProcessDefinition',[]))
     );
-
   }
 
   public getProcessDefinitionById(processId): Observable<any>{
@@ -54,37 +46,40 @@ export class HomeServiceService {
     );
   }
 
+  public postStartProcessDefinition(processId,variable): Observable<any>{
+    const endpoint=`${this.url}process-definition/${processId}/start/${variable}`;
+    console.log(endpoint);
+    return this.http.post<any>(endpoint,JSON.stringify(variable)).pipe(
+      tap(form=> this.log(`process has been started`)),
+      catchError(this.handleError('postStartProcessDefinition',[]))
+    );
+  }
+
   public postLoginVerify(variable){
     //console.log(variable);
     const endpoint=`${this.url}identity/verify/${variable}`;
     console.log(endpoint);
     return this.http.post<any>(endpoint,variable).pipe(
       tap(form => this.log(`user is verified`)),
-      catchError(this.handleError('postLoginVerify', []))
-      
+      catchError(this.handleError('postLoginVerify', [])) 
     );
-    
   }
+
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 
       // TODO: send the error to remote logging infrastructure
       console.error(error); // log to console instead
-
       // TODO: better job of transforming error for user consumption
       this.log(`${operation} failed: ${error.message}`);
-
       // Let the app keep running by returning an empty result.
       return of(result as T);
     };
+  }
 
-    
-    }
-
-
-    private log(message: string) {
+  private log(message: string) {
       console.log(message);
+  }
 
-}
 }
 

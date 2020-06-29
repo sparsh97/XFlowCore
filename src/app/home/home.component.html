@@ -42,9 +42,9 @@
            <tbody>
              
              <tr *ngFor="let task of (temp | async);  index as i">
-               <td>{{task.id}}</td>
-               <td><a [routerLink]="['/task-details/',task.id]">{{task.name}}</a></td>
-               <td>{{task.assignee}}</td>
+               <td>{{task.id | NullData}}</td>
+               <td><a [routerLink]="['/task-details/',task.id]">{{task.name | NullData}}</a></td>
+               <td>{{task.assignee | NullData}}</td>
              </tr>
            </tbody>
          </table>

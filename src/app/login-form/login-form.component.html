@@ -1,12 +1,12 @@
-<div class="container">
-   <div class="card text-center">
+<div class="container ">
+   <div class="card text-center vertical-center">
       <div class="card-header text-primary display-4">
         XFlowCore
       </div>
-      <div class="card-body">
+      <div class="card-body ">
         <h5 class="card-title">Login</h5>
-        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-         <div class="form-group">
+        <form [formGroup]="loginForm" (ngSubmit)="onLogIn(loginForm) ">
+         <div class="form-group ">
              <label for="username">Username</label>
              <input type="text" formControlName="username" class="form-control" required/>
              <div  class="invalid-feedback">

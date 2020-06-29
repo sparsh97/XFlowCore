@@ -8,11 +8,11 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { FormGroup, FormControl } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule, HttpHeaders } from '@angular/common/http';
 import { TaskDetailsComponent } from './task-details/task-details.component';
 import { ProcessListComponent } from './process-list/process-list.component';
 import { ProcessDetailsComponent } from './process-details/process-details.component';
-
+import {NullDataPipe} from './NullData';
 
 @NgModule({
   declarations: [
@@ -22,7 +22,8 @@ import { ProcessDetailsComponent } from './process-details/process-details.compo
     DashboardComponent,
     TaskDetailsComponent,
     ProcessListComponent,
-    ProcessDetailsComponent
+    ProcessDetailsComponent,
+    NullDataPipe
     ],
   imports: [
     BrowserModule,

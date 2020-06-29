@@ -12,7 +12,7 @@
 <h1 class="display-4 text-center">Process</h1>
 <div class="container">
 <div class=".col-6 .col-md-4">
-   <table class="table text-center table-bordered table-hover table-sm">
+   <table class="table text-center table-bordered table-hover table-sm"  >
       <thead class="thead-dark">
         <tr>
           <th scope="col">Id</th>
@@ -22,13 +22,13 @@
           <th scope="col">Start Process</th>
         </tr>
       </thead>
-      <tbody> 
-         <tr *ngFor="let process of (processDef | async);  index as i">
-           <td>{{process.id}}</td>
-           <td>{{process.key}}</td>
+      <tbody id="process-table"> 
+         <tr *ngFor="let process of processDefinitions;  index as i">
+           <td>{{process.id | NullData}}</td>
+           <td>{{process.key | NullData}}</td>
            <td><a [routerLink]="['/process-details/',process.id]">{{process.name}}</a></td>
-           <td>{{process.resource}}</td>
-           <td><button class="btn btn-primary text-white text-center">Start</button></td>
+           <td>{{process.resource | NullData}}</td>
+           <td><button class="btn btn-primary text-white text-center" (click)="startProcess(process.id)">Start</button></td>
          </tr>
        </tbody>
      </table>

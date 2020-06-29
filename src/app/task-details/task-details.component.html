@@ -28,15 +28,15 @@
                   <tr *ngIf="(tasks | async) as task" >
                     <td>{{task.id}}</td>
                     <td>{{task.name}}</td>
-                    <td>{{task.assignee}}</td>
+                    <td>{{task.assignee | NullData}}</td>
                     <td>{{task.created}}</td>
-                    <td>{{task.due}}</td>
-                    <td>{{task.followUp}}</td>
-                    <td>{{task.delegationState}}</td>
-                    <td>{{task.description}}</td>
-                    <td>{{task.executionId}}</td>
-                    <td>{{task.owner}}</td>
-                    <td>{{task.parentTaskId}}</td>
+                    <td>{{task.due |NullData}}</td>
+                    <td>{{task.followUp |NullData}}</td>
+                    <td>{{task.delegationState|NullData}}</td>
+                    <td>{{task.description|NullData}}</td>
+                    <td>{{task.executionId|NullData}}</td>
+                    <td>{{task.owner|NullData}}</td>
+                    <td>{{task.parentTaskId|NullData}}</td>
                   </tr>
              </tbody>
           </table>

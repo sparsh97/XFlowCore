@@ -1,3 +1,4 @@
+import { NullDataPipe } from './../NullData';
 import { Location } from '@angular/common';
 import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
